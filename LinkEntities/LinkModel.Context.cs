@@ -25,5 +25,6 @@ namespace LinkEntities
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Links> Links { get; set; }
     }
 }
