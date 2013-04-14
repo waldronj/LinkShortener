@@ -16,9 +16,11 @@ namespace LinkShortener.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Create()
         {
-            return View();
+            //DO STUFF
+            return View("Index");
         }
 
     }
