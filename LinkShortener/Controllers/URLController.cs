@@ -19,6 +19,22 @@ namespace LinkShortener.Controllers
             return View(data);
         }
 
+        public void S(int id)
+        {
+            LinkShortenerModel lsm = new LinkShortenerModel();
+            string url = lsm.GetSUrl(id);
+            string ValidUrl = "";
+            if (!url.StartsWith("http://"))
+            {
+                ValidUrl = "http://" + url;
+            }
+            else
+            {
+                ValidUrl = url;
+            }
+            Response.Redirect(ValidUrl);
+        }
+
         [HttpPost]
         public ActionResult Create(string siteName, string url, string description)
         {

@@ -8,6 +8,7 @@ namespace LinkShortener.Models
 {
     public class LinkShortenerModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string URL { get; set; }
         public string ShortURL { get; set; }
@@ -21,6 +22,7 @@ namespace LinkShortener.Models
             foreach (var item in data)
             {
                 LinkShortenerModel sl = new LinkShortenerModel();
+                sl.Id = item.Id;
                 sl.Name = item.Name;
                 sl.ShortURL = item.ShortURL;
                 sl.Description = item.Description;
@@ -39,6 +41,14 @@ namespace LinkShortener.Models
             lnk.Description = description;
             db.Links.Add(lnk);
             db.SaveChanges();
+        }
+
+        public string GetSUrl(int id)
+        {
+            TheJwalLSEntities db = new TheJwalLSEntities();
+            var data = (from x in db.Links where x.Id == id select x).FirstOrDefault();
+            string ShortenedUrl = data.URL;
+            return ShortenedUrl;
         }
     }
 
