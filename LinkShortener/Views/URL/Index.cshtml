@@ -4,12 +4,45 @@
 }
 
 <h2>Create</h2>
-
-
-@foreach (var item in Model)
+@using (Html.BeginForm("Create", "URL"))
 {
-    @item.Name <br/>
-    @item.ShortURL<br/>
-    @item.URL<br />
-    @item.Description<br/>
+    <div class="row-fluid">
+        <div class="span11 offset1">
+            <div class="span3">
+                <label>Site Name:</label>
+                <input type="text" name="siteName" class="input-xlarge"/>
+            </div>
+            <div class="span3">
+                <label>URL:</label>
+                <input type="text" name="url" class="input-xlarge"/>
+            </div>
+            <div class="span3">
+                <label>Description</label>
+                <textarea name="description" class="input-xlarge"></textarea>
+            </div>
+            <div class="span2">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
 }
+
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <th>Site Name</th>
+            <th>Short URL</th>
+            <th>Original URL</th>
+            <th>Descritpion</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td>@item.Name </td>
+            <td><a href="@item.ShortURL">@item.ShortURL</a></td>
+            <td><a href="@item.URL">@item.URL</a></td>
+            <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

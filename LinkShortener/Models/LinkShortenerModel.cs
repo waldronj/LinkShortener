@@ -15,7 +15,7 @@ namespace LinkShortener.Models
     
         public List<LinkShortenerModel> GetUrlList()
         {
-            LinkModelContainer db = new LinkModelContainer();
+            TheJwalLSEntities db = new TheJwalLSEntities();
             List<LinkShortenerModel> lsm = new List<LinkShortenerModel>();
             var data = db.Links.ToList();
             foreach (var item in data)
@@ -28,6 +28,17 @@ namespace LinkShortener.Models
                 lsm.Add(sl);    
             }
             return lsm;
+        }
+
+        public void CreateShortURL(string siteName, string url, string description)
+        {
+            TheJwalLSEntities db = new TheJwalLSEntities();
+            Link lnk = new Link();
+            lnk.Name = siteName;
+            lnk.URL = url;
+            lnk.Description = description;
+            db.Links.Add(lnk);
+            db.SaveChanges();
         }
     }
 

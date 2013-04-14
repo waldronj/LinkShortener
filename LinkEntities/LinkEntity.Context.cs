@@ -13,10 +13,10 @@ namespace LinkEntities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LinkModelContainer : DbContext
+    public partial class TheJwalLSEntities : DbContext
     {
-        public LinkModelContainer()
-            : base("name=LinkModelContainer")
+        public TheJwalLSEntities()
+            : base("name=TheJwalLSEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace LinkEntities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Links> Links { get; set; }
+        public DbSet<Link> Links { get; set; }
     }
 }

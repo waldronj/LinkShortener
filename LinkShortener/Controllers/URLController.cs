@@ -20,10 +20,12 @@ namespace LinkShortener.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create(string siteName, string url, string description)
         {
-            //DO STUFF
-            return View("Index");
+            LinkShortenerModel lsm = new LinkShortenerModel();
+            lsm.CreateShortURL(siteName, url, description);
+            ViewBag.sURL = url;
+            return View("Success");
         }
 
     }

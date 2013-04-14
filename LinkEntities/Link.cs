@@ -12,7 +12,7 @@ namespace LinkEntities
     using System;
     using System.Collections.Generic;
     
-    public partial class Links
+    public partial class Link
     {
         public int Id { get; set; }
         public string Name { get; set; }

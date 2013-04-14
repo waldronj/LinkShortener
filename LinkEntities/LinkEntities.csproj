@@ -67,45 +67,45 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinkModel.Context.cs">
+    <Compile Include="Link.cs">
+      <DependentUpon>LinkEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LinkEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LinkModel.Context.tt</DependentUpon>
+      <DependentUpon>LinkEntity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LinkModel.cs">
+    <Compile Include="LinkEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LinkModel.tt</DependentUpon>
+      <DependentUpon>LinkEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="LinkModel.Designer.cs">
+    <Compile Include="LinkEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LinkModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Links.cs">
-      <DependentUpon>LinkModel.tt</DependentUpon>
+      <DependentUpon>LinkEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="LinkModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LinkModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="LinkModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LinkModel.edmx</DependentUpon>
-      <LastGenOutput>LinkModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LinkModel.edmx.diagram">
-      <DependentUpon>LinkModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="LinkModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LinkModel.edmx</DependentUpon>
-      <LastGenOutput>LinkModel.cs</LastGenOutput>
-    </Content>
     <Content Include="packages.config" />
+    <EntityDeploy Include="LinkEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LinkEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LinkEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LinkEntity.edmx</DependentUpon>
+      <LastGenOutput>LinkEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LinkEntity.edmx.diagram">
+      <DependentUpon>LinkEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="LinkEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LinkEntity.edmx</DependentUpon>
+      <LastGenOutput>LinkEntity.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
