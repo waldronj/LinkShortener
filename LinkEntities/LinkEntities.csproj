@@ -105,6 +105,7 @@
       <DependentUpon>LinkEntity.edmx</DependentUpon>
       <LastGenOutput>LinkEntity.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\LinkEntities.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

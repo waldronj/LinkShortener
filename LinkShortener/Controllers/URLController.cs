@@ -40,7 +40,7 @@ namespace LinkShortener.Controllers
         {
             LinkShortenerModel lsm = new LinkShortenerModel();
             lsm.CreateShortURL(siteName, url, description);
-            ViewBag.sURL = url;
+            ViewBag.sURL = "l.thejwal.com";
             return View("Success");
         }
 
