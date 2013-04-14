@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LinkShortener.Models;
 
 namespace LinkShortener.Controllers
 {
@@ -13,7 +14,9 @@ namespace LinkShortener.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            LinkShortenerModel lsm = new LinkShortenerModel();
+            var data = lsm.GetUrlList();
+            return View(data);
         }
 
         [HttpPost]

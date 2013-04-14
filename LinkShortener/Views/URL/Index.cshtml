@@ -1,11 +1,15 @@
-﻿@{
+﻿@model IEnumerable<LinkShortener.Models.LinkShortenerModel>
+@{
     ViewBag.Title = "URL Shortener";
 }
 
 <h2>Create</h2>
 
-<form>
-    <label>Site Name:</label><input type="text" id="SiteName"/><br />
-    <label>URL:</label><input type="text" id="URL"/><br />
-    <label>Description:</label><textarea id="Description" />
-</form>
+
+@foreach (var item in Model)
+{
+    @item.Name <br/>
+    @item.ShortURL<br/>
+    @item.URL<br />
+    @item.Description<br/>
+}

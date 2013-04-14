@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShortener", "LinkShorte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShortener.Tests", "LinkShortener.Tests\LinkShortener.Tests.csproj", "{A9434643-3389-451A-8495-FDE802C04FE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkEntities", "LinkEntities\LinkEntities.csproj", "{12CE9972-417E-4F04-8A01-F73BA09F22FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A9434643-3389-451A-8495-FDE802C04FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9434643-3389-451A-8495-FDE802C04FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9434643-3389-451A-8495-FDE802C04FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CE9972-417E-4F04-8A01-F73BA09F22FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CE9972-417E-4F04-8A01-F73BA09F22FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CE9972-417E-4F04-8A01-F73BA09F22FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CE9972-417E-4F04-8A01-F73BA09F22FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
