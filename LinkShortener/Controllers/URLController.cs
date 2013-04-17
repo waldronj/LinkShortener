@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LinkEntities;
 using LinkShortener.Models;
 
 namespace LinkShortener.Controllers
@@ -40,7 +41,11 @@ namespace LinkShortener.Controllers
         {
             LinkShortenerModel lsm = new LinkShortenerModel();
             lsm.CreateShortURL(siteName, url, description);
-            ViewBag.sURL = "l.thejwal.com";
+            TheJwalLSEntities db = new TheJwalLSEntities();
+            var id = (from x in db.Links
+                         where x.URL == url
+                         select x.Id).FirstOrDefault();
+            ViewBag.sURL = id ;
             return View("Success");
         }
 

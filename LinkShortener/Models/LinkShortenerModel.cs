@@ -34,13 +34,17 @@ namespace LinkShortener.Models
 
         public void CreateShortURL(string siteName, string url, string description)
         {
-            TheJwalLSEntities db = new TheJwalLSEntities();
-            Link lnk = new Link();
-            lnk.Name = siteName;
-            lnk.URL = url;
-            lnk.Description = description;
-            db.Links.Add(lnk);
-            db.SaveChanges();
+            if (!CheckDupe(url))
+            {
+                TheJwalLSEntities db = new TheJwalLSEntities();
+                Link lnk = new Link();
+                lnk.Name = siteName;
+                lnk.URL = url;
+                lnk.Description = description;
+                db.Links.Add(lnk);
+                db.SaveChanges();    
+            }
+            
         }
 
         public string GetSUrl(int id)
@@ -49,6 +53,19 @@ namespace LinkShortener.Models
             var data = (from x in db.Links where x.Id == id select x).FirstOrDefault();
             string ShortenedUrl = data.URL;
             return ShortenedUrl;
+        }
+
+        public bool CheckDupe(string url)
+        {
+            TheJwalLSEntities db = new TheJwalLSEntities();
+            var result = (from x in db.Links
+                          where x.URL == url
+                          select x).FirstOrDefault();
+            if (result == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 
