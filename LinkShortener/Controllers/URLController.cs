@@ -38,10 +38,21 @@ namespace LinkShortener.Controllers
         public ActionResult Create(string siteName, string url, string description)
         {
             string checkUrl = url.ToLower();
-            if (checkUrl.StartsWith("https://") || checkUrl.StartsWith("https://"))
+            if (checkUrl.StartsWith("http://") || checkUrl.StartsWith("https://"))
             {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[8];
+                var random = new Random();
+
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var sUrl = new String(stringChars);
+                
                 LinkShortenerModel lsm = new LinkShortenerModel();
-                lsm.CreateShortURL(siteName, url, description);
+                lsm.CreateShortURL(siteName, url, description, sUrl);
                 TheJwalLSEntities db = new TheJwalLSEntities();
                 var id = (from x in db.Links
                           where x.URL == url

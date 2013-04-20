@@ -32,7 +32,7 @@ namespace LinkShortener.Models
             return lsm;
         }
 
-        public void CreateShortURL(string siteName, string url, string description)
+        public void CreateShortURL(string siteName, string url, string description, string sUrl)
         {
             if (!CheckDupe(url))
             {
@@ -40,6 +40,7 @@ namespace LinkShortener.Models
                 Link lnk = new Link();
                 lnk.Name = siteName;
                 lnk.URL = url;
+                lnk.ShortURL = sUrl;
                 lnk.Description = description;
                 db.Links.Add(lnk);
                 db.SaveChanges();    
