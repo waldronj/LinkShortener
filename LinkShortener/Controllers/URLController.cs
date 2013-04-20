@@ -45,7 +45,7 @@ namespace LinkShortener.Controllers
                 TheJwalLSEntities db = new TheJwalLSEntities();
                 var id = (from x in db.Links
                           where x.URL == url
-                          select x.Id).FirstOrDefault();
+                          select x.ShortURL).FirstOrDefault();
                 ViewBag.sURL = id;
                 return View("Success");   
             }
