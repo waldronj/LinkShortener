@@ -18,7 +18,7 @@ namespace LinkShortener.Controllers
             return View(data);
         }
 
-        public void S(int id)
+        public void S(string id)
         {
             LinkShortenerModel lsm = new LinkShortenerModel();
             string url = lsm.GetSUrl(id);

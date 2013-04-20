@@ -48,10 +48,10 @@ namespace LinkShortener.Models
             
         }
 
-        public string GetSUrl(int id)
+        public string GetSUrl(string sUrl)
         {
             TheJwalLSEntities db = new TheJwalLSEntities();
-            var data = (from x in db.Links where x.Id == id select x).FirstOrDefault();
+            var data = (from x in db.Links where x.ShortURL == sUrl select x).FirstOrDefault();
             string ShortenedUrl = data.URL;
             return ShortenedUrl;
         }
