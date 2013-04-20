@@ -32,9 +32,10 @@ namespace LinkShortener.Models
             return lsm;
         }
 
-        public void CreateShortURL(string siteName, string url, string description, string sUrl)
+        public void CreateShortURL(string siteName, string url, string description)
         {
-            if (!CheckDupe(url))
+            string sUrl = GenerateShortURL();
+            if (!CheckDupe(url) && !CheckDupeShortUrl(sUrl))
             {
                 TheJwalLSEntities db = new TheJwalLSEntities();
                 Link lnk = new Link();
@@ -56,6 +57,21 @@ namespace LinkShortener.Models
             return ShortenedUrl;
         }
 
+        public string GenerateShortURL()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var sUrl = new String(stringChars);
+            return sUrl;
+        }
+
         public bool CheckDupe(string url)
         {
             TheJwalLSEntities db = new TheJwalLSEntities();
@@ -68,7 +84,18 @@ namespace LinkShortener.Models
             }
             return true;
         }
+
+        public bool CheckDupeShortUrl(string url)
+        {
+            TheJwalLSEntities db = new TheJwalLSEntities();
+            var result = (from x in db.Links
+                          where x.ShortURL == url
+                          select x).FirstOrDefault();
+            if (result == null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
-
-
 }
