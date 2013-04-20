@@ -10,9 +10,7 @@ namespace LinkShortener.Controllers
 {
     public class URLController : Controller
     {
-        //
-        // GET: /URL/
-
+       
         public ActionResult Index()
         {
             LinkShortenerModel lsm = new LinkShortenerModel();
@@ -25,13 +23,13 @@ namespace LinkShortener.Controllers
             LinkShortenerModel lsm = new LinkShortenerModel();
             string url = lsm.GetSUrl(id);
             string ValidUrl = "";
-            if (!url.StartsWith("http://"))
+            if (url.StartsWith("http://") || url.StartsWith("https://"))
             {
-                ValidUrl = "http://" + url;
+                ValidUrl = url;
             }
             else
             {
-                ValidUrl = url;
+                ValidUrl = "http://" + url;
             }
             Response.Redirect(ValidUrl);
         }
@@ -39,14 +37,22 @@ namespace LinkShortener.Controllers
         [HttpPost]
         public ActionResult Create(string siteName, string url, string description)
         {
-            LinkShortenerModel lsm = new LinkShortenerModel();
-            lsm.CreateShortURL(siteName, url, description);
-            TheJwalLSEntities db = new TheJwalLSEntities();
-            var id = (from x in db.Links
-                         where x.URL == url
-                         select x.Id).FirstOrDefault();
-            ViewBag.sURL = id ;
-            return View("Success");
+            string checkUrl = url.ToLower();
+            if (checkUrl.StartsWith("https://") || checkUrl.StartsWith("https://"))
+            {
+                LinkShortenerModel lsm = new LinkShortenerModel();
+                lsm.CreateShortURL(siteName, url, description);
+                TheJwalLSEntities db = new TheJwalLSEntities();
+                var id = (from x in db.Links
+                          where x.URL == url
+                          select x.Id).FirstOrDefault();
+                ViewBag.sURL = id;
+                return View("Success");   
+            }
+            else
+            {
+                return View("Failure");
+            }
         }
 
     }
