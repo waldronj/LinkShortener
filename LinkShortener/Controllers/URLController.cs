@@ -55,5 +55,13 @@ namespace LinkShortener.Controllers
             }
         }
 
+        public ActionResult Sort()
+        {
+            LinkShortenerModel lsm = new LinkShortenerModel();
+            var data = lsm.GetUrlList().OrderBy(x=> x.Name );
+            
+            return View("Index", data);
+        }
+
     }
 }

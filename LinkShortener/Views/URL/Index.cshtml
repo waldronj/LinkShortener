@@ -39,22 +39,23 @@
     </div>
 }
 
-<table class="table table-hover">
+<table class="table table-hover" id="Links">
     <tbody>
         <tr>
-            <th>Site Name</th>
+            <th><a href="/url/sort">Site Name</a></th>
             <th>Short URL</th>
             <th>Original URL</th>
             <th>Description</th>
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
-            <td>@item.Name </td>
-            <td><a href="/url/s/@item.ShortURL" target="_blank">l.thejwal.com/url/s/@item.ShortURL</a></td>
-            <td><a href="@item.URL">@item.URL</a></td>
-            <td>@item.Description</td>
+            <tr >
+                <td>@item.Name </td>
+                <td><a href="/url/s/@item.ShortURL" target="_blank">l.thejwal.com/url/s/@item.ShortURL</a></td>
+                <td><a href="@item.URL">@item.URL</a></td>
+                <td>@item.Description</td>
             </tr>
+            
         }
     </tbody>
 </table>

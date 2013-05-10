@@ -3,8 +3,7 @@
         <title>@ViewBag.Title</title>
         <link rel="stylesheet" href="~/Content/CSS/bootstrap.css"/>
         <link rel="stylesheet" href="~/Content/CSS/bootstrap-responsive.css"/>
-
-    </head>
+        </head>
     <body>
         <header>
            <div class="navbar">
@@ -22,8 +21,9 @@
         </section>
         
         @* Add jQuery and Bootstrap JS to insure it is loaded on every page *@
-        <script type="text/javascript" src="~/Content/Scritps/jquery.js" ></script>
-        <script type="text/javascript" src="~/Content/Scritps/bootstrap.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js" ></script>
+        <script type="text/javascript" src="/Content/Scritps/bootstrap.js"></script>
+        <script type="text/javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
         @RenderSection("Scripts", required:false)
     </body>
 </html>

@@ -135,6 +135,7 @@
     <Content Include="Content\Scritps\bootstrap.js" />
     <Content Include="Content\Scritps\bootstrap.min.js" />
     <Content Include="Content\Scritps\jquery.js" />
+    <Content Include="Content\Scritps\jquery.tablesorter.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
