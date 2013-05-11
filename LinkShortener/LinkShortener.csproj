@@ -132,6 +132,7 @@
     <Content Include="Content\CSS\bootstrap-responsive.min.css" />
     <Content Include="Content\CSS\bootstrap.css" />
     <Content Include="Content\CSS\bootstrap.min.css" />
+    <Content Include="Content\CSS\site.css" />
     <Content Include="Content\Scritps\bootstrap.js" />
     <Content Include="Content\Scritps\bootstrap.min.js" />
     <Content Include="Content\Scritps\dataTables.min.js" />
