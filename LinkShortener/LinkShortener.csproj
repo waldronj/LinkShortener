@@ -134,6 +134,7 @@
     <Content Include="Content\CSS\bootstrap.min.css" />
     <Content Include="Content\Scritps\bootstrap.js" />
     <Content Include="Content\Scritps\bootstrap.min.js" />
+    <Content Include="Content\Scritps\dataTables.min.js" />
     <Content Include="Content\Scritps\jquery.js" />
     <Content Include="Content\Scritps\jquery.tablesorter.min.js" />
     <Content Include="Global.asax" />

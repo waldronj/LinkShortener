@@ -40,13 +40,15 @@
 }
 
 <table class="table table-hover" id="Links">
-    <tbody>
-        <tr>
-            <th><a href="/url/sort">Site Name</a></th>
-            <th>Short URL</th>
-            <th>Original URL</th>
-            <th>Description</th>
-        </tr>
+        <thead>
+            <tr id="sortLinks">
+                <th><a href="#">Site Name</a></th>
+                <th><a href="#">Short URL</a></th>
+                <th><a href="#">Original URL</a></th>
+                <th><a href="#">Description</a></th>
+            </tr>
+        </thead>
+        <tbody>    
         @foreach (var item in Model)
         {
             <tr >
@@ -59,3 +61,17 @@
         }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#Links').dataTable({
+                "aaSorting": [[4, "desc"]]
+            });
+        });
+        $('#sortLinks a').on('click', function() {
+            $('a').preventDefault();
+        });
+    </script>
+}
