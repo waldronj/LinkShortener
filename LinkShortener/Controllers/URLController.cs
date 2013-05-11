@@ -63,5 +63,13 @@ namespace LinkShortener.Controllers
             return View("Index", data);
         }
 
+        [AllowAnonymous]
+        public ActionResult getData()
+        {
+            LinkShortenerModel lsm = new LinkShortenerModel();
+            var data = lsm.GetUrlList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
