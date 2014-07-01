@@ -35,19 +35,23 @@ namespace LinkShortener.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string siteName, string url, string description)
+        public ActionResult Create(string siteName, string url, string description, string passphrase)
         {
             string checkUrl = url.ToLower();
             if (checkUrl.StartsWith("http://") || checkUrl.StartsWith("https://"))
             {
-                LinkShortenerModel lsm = new LinkShortenerModel();
-                lsm.CreateShortURL(siteName, url, description);
-                TheJwalLSEntities db = new TheJwalLSEntities();
-                var id = (from x in db.Links
-                          where x.URL == url
-                          select x.ShortURL).FirstOrDefault();
-                ViewBag.sURL = id;
-                return View("Success");   
+                if (passphrase == System.Configuration.ConfigurationManager.AppSettings["passphrase"].ToString())
+                {
+                    LinkShortenerModel lsm = new LinkShortenerModel();
+                    lsm.CreateShortURL(siteName, url, description);
+                    TheJwalLSEntities db = new TheJwalLSEntities();
+                    var id = (from x in db.Links
+                              where x.URL == url
+                              select x.ShortURL).FirstOrDefault();
+                    ViewBag.sURL = id;
+                    return View("Success");
+                }
+                return View("Failure");
             }
             else
             {
