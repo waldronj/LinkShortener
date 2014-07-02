@@ -41,6 +41,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AttributeRouting">
+      <HintPath>..\packages\AttributeRouting.Core.3.5.6\lib\net40\AttributeRouting.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web">
+      <HintPath>..\packages\AttributeRouting.Core.Web.3.5.6\lib\net40\AttributeRouting.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web.Mvc">
+      <HintPath>..\packages\AttributeRouting.3.5.6\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -113,8 +122,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs">
       <SubType>Code</SubType>
     </Compile>

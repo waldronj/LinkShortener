@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using LinkEntities;
 using LinkShortener.Models;
+using AttributeRouting.Web.Mvc;
 
 namespace LinkShortener.Controllers
 {
@@ -18,6 +19,7 @@ namespace LinkShortener.Controllers
             return View(data);
         }
 
+        [GET("{id}")]
         public void S(string id)
         {
             LinkShortenerModel lsm = new LinkShortenerModel();
